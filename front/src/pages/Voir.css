@@ -1,0 +1,11 @@
+table, th, td {
+    border: 1px solid rgb(94, 88, 88);
+    
+    
+  }
+  th{
+  background-color: rgb(134, 160, 172);
+  color: white;
+  }
+
+

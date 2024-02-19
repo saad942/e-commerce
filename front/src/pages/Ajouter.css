@@ -1,0 +1,35 @@
+/* Ajouter.css */
+
+.container {
+    padding-top: 80px;
+  }
+  .mt{
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+  }
+  
+  label {
+    margin-left: 10px;
+    color: #333; /* Set label text color to dark gray */
+  }
+  
+  input {
+    width: 250px;
+    margin-bottom: 10px;
+    padding: 8px; /* Add padding to input fields */
+    border: 1px solid #ccc; /* Add a light gray border to input fields */
+  }
+  
+  button {
+    margin-top: 20px;
+    width: 200px;
+    margin-left: 10px;
+    padding: 10px; /* Add padding to the button */
+    background-color: #4caf50; /* Set button background color to green */
+    color: #fff; /* Set button text color to white */
+    border: none; /* Remove button border */
+    cursor: pointer;
+  }
+  
+  /* Add more styles as needed */
+  

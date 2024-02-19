@@ -1,0 +1,44 @@
+/* pr.css */
+.proBac{
+  background: linear-gradient(0deg, rgba(121, 114, 114, 0.8), rgba(92, 85, 85, 0.8)), url(/public/images/pro1.jpg);
+  border-radius: 15px;
+    height: 400px;
+    background-size: cover;
+
+}
+.container {
+    color: azure;
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  .card {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card-body {
+    color: black;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+  }
+  
+  .card-body img {
+    width: 70%;
+    max-height: 70%;
+    object-fit: contain;
+  }
+  
+ 
+
+  
