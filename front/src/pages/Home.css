@@ -1,157 +1,174 @@
 .cnt {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    background: linear-gradient(0deg, rgba(117, 107, 107, 0.8), rgba(87, 84, 84, 0.8)),
-      url(/public/images/use.jpg);
-    background-size: cover;
-    border-radius: 15px;
-    height: 550px;
-    width: 100%;
-    border: none;
-  }
-  .addUp {
-    display: flex;
-    align-items: center; 
-  }
-  
-  .imgHH {
-    background-size: cover;
-    height: 550px;
-  margin-left: 50px;
-    flex: 0 0 auto; 
-    margin-right: 140px; 
-    border-left: 15px solid black; 
-    border-radius: 20px; 
-  }
-  
-  .imgHH img {
-    width: 100%; /* Ensure image fills container */
-    height: 100%; /* Ensure image fills container */
-    object-fit: cover; /* Maintain aspect ratio and fill container */
-  }
-  
-  .txtIM {
-    flex: 1; /* Allow text to grow to fill remaining space */
-  }
-  .txtIM p {
-    font-size: 16px; /* Adjust font size */
-    line-height: 1.5; /* Adjust line height */
-    color: #333; /* Adjust text color */
-    margin-bottom: 10px; /* Adjust bottom margin */
-  }
-  
-  
-  .all {
-    background: none;
-    position: absolute;
-    top: 35%;
-    margin: 0 10px;
-    color: azure;
-    font-size: x-large;
-    overflow: hidden;
-    text-align: center;
-     margin-right: 500px;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .container {
-    max-width: 1200px; /* Set maximum width for the container */
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 20px; /* Add padding around the container */
-  }
-  
-  .text {
-    font-size: 24px; /* Adjust font size */
-    margin-bottom: 30px; /* Add some space below the heading */
-    color: rgb(134, 160, 172);
-    text-align: center;
-    text-decoration: overline;
-  }
-  
-  .row {
-    display: flex; /* Use flexbox for the row */
-    justify-content: space-between; /* Space items evenly along the main axis */
-    margin-top: 30px; /* Add some space above the row */
-  }
-  
-  .col-4 {
-    flex: 0 0 30%; /* Set width for columns */
-    text-align: center; /* Center align text */
-  }
-  
-  .div1, .div2, .div3 {
-    background-size: cover;
-    border-radius: 30px;
-    height: 200px;
-    color: bisque;
-    text-decoration: underline;
-    text-align: center;
-    cursor: pointer; /* Add cursor pointer on hover */
-    transition: box-shadow 0.3s, transform 0.3s; /* Add smooth transition */
-  }
-  
-  .div1:hover, .div2:hover, .div3:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    transform: translateY(-10px);
-  }
-  
-  .div1 {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/public/images/sale.png);
-  }
-  
-  .div2 {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/public/images/buy.png);
-  }
-  
-  .div3 {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/public/images/cash.jpeg);
-  }
-  
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(0deg, rgba(117, 107, 107, 0.8), rgba(87, 84, 84, 0.8)),
+    url(/public/images/use.jpg);
+  background-size: cover;
+  border-radius: 15px;
+  height: 550px;
+  width: 100%;
+  border: none;
+}
+.addUp {
+  display: flex;
+  align-items: center; 
+}
 
-  .join {
-    width: 1000px; /* Set width */
-    height: 400px; /* Set height */
-    text-align: center; /* Center align content */
-    background-color: rgba(179, 200, 209, 0.952); /* Set background color */
-    margin-left: 150px; /* Add left margin */
-    border-radius: 40px; /* Add border radius */
-    padding: 50px; /* Add padding */
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Arrange child elements in a column */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-  }
-  
-  .join h1 {
-    font-size: 36px; /* Set font size */
-    color: rgb(134, 160, 172); /* Set text color */
-    margin-bottom: 10px; /* Add space below heading */
-  }
-  
-  .join h5 {
-    font-size: 18px; /* Set font size */
-    color: #333; /* Set text color */
-    margin-bottom: 20px; /* Add space below paragraph */
-  }
-  
-  .join button {
-    padding: 10px 20px; /* Add padding to the button */
-    font-size: 18px; /* Set font size */
-    background-color: rgb(134, 160, 172); /* Set background color */
-    color: white; /* Set text color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Add border radius */
-    cursor: pointer; /* Add cursor pointer on hover */
-    transition: background-color 0.3s; /* Add smooth transition */
-  }
-  
-  .join button:hover {
-    background-color: #56799d; /* Change background color on hover */
-  }
-  
+.imgHH {
+  background-size: cover;
+  height: 550px;
+margin-left: 50px;
+  flex: 0 0 auto; 
+  margin-right: 140px; 
+  border-left: 15px solid black; 
+  border-radius: 20px; 
+}
+
+.imgHH img {
+  width: 100%; /* Ensure image fills container */
+  height: 100%; /* Ensure image fills container */
+  object-fit: cover; /* Maintain aspect ratio and fill container */
+}
+
+.txtIM {
+  flex: 1; /* Allow text to grow to fill remaining space */
+}
+.txtIM p {
+  font-size: 16px; /* Adjust font size */
+  line-height: 1.5; /* Adjust line height */
+  color: #333; /* Adjust text color */
+  margin-bottom: 10px; /* Adjust bottom margin */
+}
+
+
+.all {
+  background: none;
+  position: absolute;
+  top: 35%;
+  margin: 0 10px;
+  color: azure;
+  font-size: x-large;
+  overflow: hidden;
+  text-align: center;
+   margin-right: 500px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.container {
+  max-width: 1200px; /* Set maximum width for the container */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px; /* Add padding around the container */
+}
+
+.text {
+  font-size: 24px; /* Adjust font size */
+  margin-bottom: 30px; /* Add some space below the heading */
+  color: rgb(134, 160, 172);
+  text-align: center;
+  text-decoration: overline;
+}
+
+.row {
+  display: flex; /* Use flexbox for the row */
+  justify-content: space-between; /* Space items evenly along the main axis */
+  margin-top: 30px; /* Add some space above the row */
+}
+
+.col-4 {
+  flex: 0 0 30%; /* Set width for columns */
+  text-align: center; /* Center align text */
+}
+
+.div1, .div2, .div3 {
+  background-size: cover;
+  border-radius: 30px;
+  height: 200px;
+  color: bisque;
+  text-decoration: underline;
+  text-align: center;
+  cursor: pointer; /* Add cursor pointer on hover */
+  transition: box-shadow 0.3s, transform 0.3s; /* Add smooth transition */
+}
+
+.div1:hover, .div2:hover, .div3:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(-10px);
+}
+
+.div1 {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/public/images/sale.png);
+}
+
+.div2 {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/public/images/buy.png);
+}
+
+.div3 {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/public/images/cash.jpeg);
+}
+
+
+.join {
+  width: 1000px; /* Set width */
+  height: 400px; /* Set height */
+  text-align: center; /* Center align content */
+  background-color: rgba(179, 200, 209, 0.952); /* Set background color */
+  margin-left: 150px; /* Add left margin */
+  border-radius: 40px; /* Add border radius */
+  padding: 50px; /* Add padding */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange child elements in a column */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+}
+
+.join h1 {
+  font-size: 36px; /* Set font size */
+  color: rgb(134, 160, 172); /* Set text color */
+  margin-bottom: 10px; /* Add space below heading */
+}
+
+.join h5 {
+  font-size: 18px; /* Set font size */
+  color: #333; /* Set text color */
+  margin-bottom: 20px; /* Add space below paragraph */
+}
+
+.join button {
+  padding: 10px 20px; /* Add padding to the button */
+  font-size: 18px; /* Set font size */
+  background-color: rgb(134, 160, 172); /* Set background color */
+  color: white; /* Set text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add border radius */
+  cursor: pointer; /* Add cursor pointer on hover */
+  transition: background-color 0.3s; /* Add smooth transition */
+}
+
+.join button:hover {
+  background-color: #56799d; /* Change background color on hover */
+}
+
+.productContainer {
+  margin-left: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Optional: adds space between the products */
+}
+
+
+
+.img {
+  width: 100%;
+  height: auto;
+}
+.tlPro{
+  justify-content: space-between;
+  display: flex;
+}

@@ -98,6 +98,8 @@ function NavBar() {
           <Modal.Title>All Chosen Products</Modal.Title>
         </Modal.Header>
         <Modal.Body >
+        <strong>Total: {cart.reduce((sum, product) => sum + product.prix, 0)}DH</strong>
+
         <table style={{width:'450px',textAlign: "center" }}>
           <thead>
            <tr>
@@ -106,6 +108,8 @@ function NavBar() {
                <th>Taill</th>
                <th>Gender</th>
                <th>Prix</th>
+               <th></th>
+               <th></th>
              </tr>
            </thead>
            <tbody>
@@ -118,13 +122,15 @@ function NavBar() {
              <td>{product.taill}</td>
              <td>{product.gender}</td>
              <td>{product.prix}</td>
+             <td><button style={{width:'80px' ,height:'60px' ,backgroundColor:'non'}}>Delete</button></td>
+             <td><button style={{width:'80px' ,height:'60px'}}> payment</button></td>
       
           </tr>
          ))}
 
          </tbody>
        </table>
-       <strong>Total: {cart.reduce((sum, product) => sum + product.prix, 0)}DH</strong>
+       {/* <strong>Total: {cart.reduce((sum, product) => sum + product.prix, 0)}DH</strong> */}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseModal}>
