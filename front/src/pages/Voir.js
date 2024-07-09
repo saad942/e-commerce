@@ -6,21 +6,25 @@ import Footer from "./Footer";
 function Voir() {
   const user = JSON.parse(localStorage.getItem('user-info'));
   const [voir, setVoir] = useState([]);
+  const [added, setAdded] = useState(0);
 
   useEffect(() => {
     axios.get(`http://localhost:8081/getData/${user.id}`)
       .then((response) => {
         setVoir(response.data);
+        setAdded(added + 1);
+
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
       });
-  }, [user.id]);
+  }, [user.id ,added]);
 
   const handleDelete = (id) => {
     axios.delete(`http://localhost:8081/delete/${id}`)
       .then((response) => {
         console.log(response);
+
       })
       .catch((error) => {
         console.error('Error deleting data:', error);

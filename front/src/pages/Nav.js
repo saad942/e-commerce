@@ -9,6 +9,7 @@ function NavBar() {
   const [cart, setCart] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [added, setAdded] = useState(0);
 
   const logout = () => {
     localStorage.clear();
@@ -18,15 +19,16 @@ function NavBar() {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const response = await axios.get('http://localhost:8081/cart');
+        const response = await axios.get(`http://localhost:8081/cart/${user.id}`);
         setCart(response.data);
+        setAdded(added + 1);
       } catch (error) {
         console.error('Error fetching cart:', error);
       }
     };
 
     fetchCart();
-  }, []);
+  }, [cart  , added]);
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -36,6 +38,15 @@ function NavBar() {
   const handleShowModal = (product) => {
     setSelectedProduct(product);
     setShowModal(true);
+  };
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:8081/deleteCart/${id}`)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error('Error deleting data:', error);
+      });
   };
 
   
@@ -93,51 +104,48 @@ function NavBar() {
 
           </>
         )}
-         <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>All Chosen Products</Modal.Title>
-        </Modal.Header>
-        <Modal.Body >
-        <strong>Total: {cart.reduce((sum, product) => sum + product.prix, 0)}DH</strong>
-
-        <table style={{width:'450px',textAlign: "center" }}>
-          <thead>
-           <tr>
-               <th>photo</th>
-               <th>Name</th>
-               <th>Taill</th>
-               <th>Gender</th>
-               <th>Prix</th>
-               <th></th>
-               <th></th>
-             </tr>
-           </thead>
-           <tbody>
-           {cart.map((product, index) => (
-           <tr key={product.id}>
-             <td>
-               <img src={`http://localhost:8081/${product.photo}`} style={{ height: '20px' }} alt={product.name} />
-             </td>
-             <td>{product.name}</td>
-             <td>{product.taill}</td>
-             <td>{product.gender}</td>
-             <td>{product.prix}</td>
-             <td><button style={{width:'80px' ,height:'60px' ,backgroundColor:'non'}}>Delete</button></td>
-             <td><button style={{width:'80px' ,height:'60px'}}> payment</button></td>
-      
+<Modal show={showModal} onHide={handleCloseModal} size="lg">
+  <Modal.Header closeButton>
+    <Modal.Title className="text-center">Your Cart</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <div className="cart-total text-center mb-4">
+      <h4>Total: {cart.reduce((sum, product) => sum + product.prix, 0)} DH</h4>
+    </div>
+    <div className="cart-items">
+      <table className="table table-bordered">
+        <thead>
+        <tr className="text-center bg-dark">
+            <th>Name</th>
+            <th>Price</th>
+            <th>Action</th>
           </tr>
-         ))}
+        </thead>
+        <tbody>
+          {cart.map((product, index) => (
+            <tr key={product.id} className="text-center">
+              <td>{product.name}</td>
+              <td>{product.prix} DH</td>
+              <td>
+              <button
+                    onClick={() => handleDelete(product.id)}
+                    className="btn btn-danger mr-2"
+                  >
+                    Delete
+                  </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </Modal.Body>
+  <Modal.Footer className="justify-content-center">
+    <button className="btn btn-success">Payment</button>
+  </Modal.Footer>
+</Modal>
 
-         </tbody>
-       </table>
-       {/* <strong>Total: {cart.reduce((sum, product) => sum + product.prix, 0)}DH</strong> */}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+
       </div>
     </div>
   );

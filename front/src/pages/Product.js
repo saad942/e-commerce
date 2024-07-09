@@ -13,8 +13,9 @@ function Product() {
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [showModal, setShowModal] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState([]);
   const [cart, setCart] = useState([]); // State to track the items in the cart
+  const user = JSON.parse(localStorage.getItem('user-info'));
 
   useEffect(() => {
     axios.get(`http://localhost:8081/product`)
@@ -26,6 +27,27 @@ function Product() {
         setError("Error fetching products. Please try again later.");
       });
   }, []);
+
+  // const addcarte = (photo,name,prix,gender,taill,product_id)=>{
+  //   axios.post("http://localhost:8081/addC", {photo,name,prix,gender,taill,product_id})
+  //   .then((response) => {
+  //     console.log(response);
+  //     if (response.data.Status === 'Success') {
+  //       console.log('Successful create.');
+  //       navigate('/');
+  //     } else {
+  //       console.log('Create failed. Server response:', response.data);
+  //     }
+  //   })
+  //   .catch((error) => {
+  //     console.error('Error:', error.message);
+  //     if (error.response) {
+  //       console.log('Server Response Data:', error.response.data);
+  //       console.log('Server Status:', error.response.status);
+  //     }
+  //   });
+
+  // }
 
   const viewProductDetail = (productId) => {
     const product = products.find(p => p.id === productId);
@@ -42,16 +64,15 @@ function Product() {
     }
   };
 
-  const handleSale = async () => {
-    if (selectedProduct) {
+  const handleSale = async ( name, prix,user_id ) => {
       try {
-        await axios.post("http://localhost:8081/addToCart", { product: selectedProduct });
-        setCart([...cart, selectedProduct]); // Update the cart on the client side
+        await axios.post("http://localhost:8081/addC", {  name, prix,user_id ,user_email: user.email });
+        setCart([...cart, name, prix,user_id ,user.email ]); // Update the cart on the client side
         setShowModal(false); // Close the modal after sale
       } catch (error) {
         console.error("Error adding product to cart:", error);
       }
-    }
+    
   };
 
   const handleCloseModal = () => {
@@ -108,7 +129,7 @@ function Product() {
             <Button variant="secondary" onClick={handleCloseModal}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleSale}>
+            <Button variant="primary" onClick={()=>handleSale(selectedProduct.name,selectedProduct.prix ,selectedProduct.user_id)}>
               Sell
             </Button>
           </Modal.Footer>
