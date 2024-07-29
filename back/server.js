@@ -3,7 +3,7 @@ const mysql = require("mysql");
 const cors = require("cors");
 const multer = require("multer");
 const bodyParser = require('body-parser');
-
+const stripe =require("stripe")("sk_test_51Pc9A3RoPpKdTVswx0RNtVeoG6QSNAQRmFinlq10at6UbhszWiqiuTmQnVNE85NvsGU6zwIEqTOPOkcC1IXl0Ea8008OYZ1QhQ")
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -199,9 +199,42 @@ app.post('/login', (req, res) => {
     });
 });
 
+app.post("/create-checkout-session", async (req, res) => {
+    const { cart } = req.body;
+
+    const lineItems = cart.map((product) => ({
+        price_data: {
+            currency: 'usd',
+            product_data: {
+                name: product.name 
+            },
+            unit_amount: product.prix * 100, // Stripe expects amounts in cents
+        },
+        quantity: 1
+    }));
+
+    try {
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ["card"],
+            line_items: lineItems,
+            mode: "payment",
+            success_url: "http://localhost:3000/sucess", // Typo corrected from sucess_url to success_url
+            cancel_url: "http://localhost:3000/cancel",
+        });
+
+        res.json({ id: session.id });
+    } catch (error) {
+        console.error('Error creating checkout session:', error);
+        res.status(500).json({ error: 'Failed to create checkout session' });
+    }
+});
+
+
 app.listen(8081, () => {
     console.log('Listening on port 8081');
 });
 
 
 
+//req.body  body
+//req.params.id njibo id

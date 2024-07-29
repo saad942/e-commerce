@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Ajouter from './pages/Ajouter';
 import Voir from './pages/Voir';
 import Product from './pages/Product';
+import Sucess from './pages/Sucess';
+import Cancel from './pages/Cancel';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/signUp" element={<SignUp />} />
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
+          <Route  path='/sucess' element={<Sucess />}/>
+      <Route  path='/cancel' element={<Cancel />}/>
           <Route path='/product' element={<Product/>}/>
         </Routes>
       </BrowserRouter>
@@ -27,6 +31,22 @@ function App() {
 }
 
 export default App;
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
  
  
